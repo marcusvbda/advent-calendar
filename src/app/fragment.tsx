@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Snowfall from "react-snowfall";
 
 export default function Fragment() {
@@ -120,43 +121,17 @@ export default function Fragment() {
       day: 25,
       activity: "Olhe nos olhos um do outro e agradeçam por algo bom.",
     },
-    {
-      day: 26,
-      activity: "Planejem uma viagem ou passeio para o próximo ano juntos.",
-    },
-    {
-      day: 27,
-      activity:
-        "Comprem uma lembrancinha simbólica um para o outro, algo cheio de significado.",
-    },
-    {
-      day: 28,
-      activity:
-        "Façam uma retrospectiva do ano, relembrando os melhores momentos.",
-    },
-    {
-      day: 29,
-      activity:
-        "Joguem um jogo ou façam algo divertido em casa, como montar um quebra-cabeça.",
-    },
-    {
-      day: 30,
-      activity:
-        "Organizem a casa para o ano novo, desapegando do que não usam mais.",
-    },
-    {
-      day: 31,
-      activity:
-        "Façam uma oração especial para encerrar o ano com gratidão e esperanças para 2025.",
-    },
   ];
 
   const layers: any = [
-    [31],
-    [30, 29],
-    [28, 27, 26],
-    [25, 24, 23, 22],
-    [5, 4, 3, 2, 1],
+    [25],
+    [24, 23],
+    [22, 21, 20],
+    [19, 18, 17, 16],
+    [15, 14, 13, 12, 11],
+    [10, 9, 8, 7, 6, 5],
+    [4, 3],
+    [2, 1],
   ];
 
   const canRevew = (day: any) => {
@@ -171,13 +146,18 @@ export default function Fragment() {
   return (
     <>
       <Snowfall />
+      <div className="flex space-x-2 justify-center">
+        <Image src="/star.png" alt="star" width={100} height={100} />
+      </div>
       {layers.map((layer: any, index: any) => (
         <div key={index} className="flex space-x-2 justify-center">
           {layer.map((num: any) => (
             <button
               onClick={() => seeAdvent(num)}
               key={num}
-              className="w-12 h-12 my-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-full disabled:opacity-50"
+              className={`w-12 h-12 my-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-full disabled:opacity-50 ${
+                num <= 4 && "bg-[#964B00]"
+              }`}
               disabled={!canRevew(num)}
             >
               {num}
