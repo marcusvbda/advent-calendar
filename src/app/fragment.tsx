@@ -5,7 +5,7 @@ export default function Fragment() {
   const currentDay = new Date().getDay() + 1;
 
   const advents: { day: number; activity: string }[] = [
-    { day: 1, activity: "Visitem um lugar muito decorado de Natal." },
+    { day: 1, activity: "Visitem um lugar decorado com luzes de Natal." },
     {
       day: 2,
       activity:
@@ -177,7 +177,7 @@ export default function Fragment() {
             <button
               onClick={() => seeAdvent(num)}
               key={num}
-              className="w-24 h-24 my-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-full disabled:opacity-50"
+              className="w-12 h-12 my-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-full disabled:opacity-50"
               disabled={!canRevew(num)}
             >
               {num}
