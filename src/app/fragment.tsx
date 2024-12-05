@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import Snowfall from "react-snowfall";
 
 export default function Fragment() {
-  const currentDay = new Date().getDay() + 1;
+  const audioRef = useRef(null);
+  const [currentDay, setCurrentDay] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   const advents: { day: number; activity: string }[] = [
     { day: 1, activity: "Visitem um lugar decorado com luzes de Natal." },
@@ -134,20 +137,33 @@ export default function Fragment() {
     [2, 1],
   ];
 
+  useEffect(() => {
+    const cd = new Date().getDay() + 1;
+    setCurrentDay(cd);
+    setVisible(true);
+  }, []);
+
   const canRevew = (day: any) => {
     return currentDay >= day;
   };
 
   const seeAdvent = (day: any) => {
     const currentAdvent: any = advents.find((a: any) => a.day === day);
+    (audioRef.current as any)?.play();
     alert(currentAdvent.activity);
   };
+
+  if (!visible) return <></>;
 
   return (
     <>
       <Snowfall />
+      <audio ref={audioRef}>
+        <source src="/mc.mp3" type="audio/mpeg" />
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
       <div className="flex space-x-2 justify-center">
-        <Image src="/star.png" alt="star" width={100} height={100} />
+        <Image src="/star.png" alt="star" width={100} height={100} priority />
       </div>
       {layers.map((layer: any, index: any) => (
         <div key={index} className="flex space-x-2 justify-center">
@@ -156,7 +172,7 @@ export default function Fragment() {
               onClick={() => seeAdvent(num)}
               key={num}
               className={`w-12 h-12 my-1 flex items-center justify-center bg-green-600 text-white font-bold rounded-full disabled:opacity-50 ${
-                num <= 4 && "bg-[#964B00]"
+                num <= 4 && "!bg-[#964B00]"
               }`}
               disabled={!canRevew(num)}
             >
