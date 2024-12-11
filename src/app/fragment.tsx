@@ -2,8 +2,10 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Snowfall from "react-snowfall";
+import { useSwal } from "./helpers/swal";
 
 export default function Fragment() {
+  const { toast } = useSwal();
   const audioRef = useRef(null);
   const [currentDay, setCurrentDay] = useState(0);
   const [visible, setVisible] = useState(false);
@@ -138,19 +140,20 @@ export default function Fragment() {
   ];
 
   useEffect(() => {
-    const cd = new Date().getDay() + 1;
-    setCurrentDay(cd);
+    const today = new Date();
+    setCurrentDay(+today.getDate());
     setVisible(true);
   }, []);
 
   const canRevew = (day: any) => {
+    // console.log(currentDay, day);
     return currentDay >= day;
   };
 
   const seeAdvent = (day: any) => {
     const currentAdvent: any = advents.find((a: any) => a.day === day);
     (audioRef.current as any)?.play();
-    alert(currentAdvent.activity);
+    toast("success", `${day} de Dezembro`, currentAdvent.activity);
   };
 
   if (!visible) return <></>;
