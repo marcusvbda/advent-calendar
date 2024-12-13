@@ -39,12 +39,12 @@ export default function Fragment() {
     {
       day: 7,
       activity:
-        "Façam uma boa ação: doem roupas ou brinquedos para uma instituição de caridade.",
+        "Façam uma boa ação: doem roupas ou brinquedos para uma instituição de caridade por exemplo",
     },
     {
       day: 8,
       activity:
-        "Assistam a um filme natalino clássico como 'Esqueceram de Mim' ou 'O Grinch'.",
+        "Assistam a um filme natalino, sugestão 'operação natal da prime video'",
     },
     {
       day: 9,
@@ -52,8 +52,7 @@ export default function Fragment() {
     },
     {
       day: 10,
-      activity:
-        "Participem de uma missa, especialmente uma com temática de Advento.",
+      activity: "Participem de uma missa juntos",
     },
     {
       day: 11,
