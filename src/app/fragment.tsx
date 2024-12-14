@@ -67,7 +67,7 @@ export default function Fragment() {
     {
       day: 13,
       activity:
-        "Leiam um trecho da Bíblia relacionado ao Natal, como Lucas 2:1-20.",
+        "Saiam para jantar e assistam um filminha de terror juntinhos, afim hoje é sexta-feira 13",
     },
     {
       day: 14,
