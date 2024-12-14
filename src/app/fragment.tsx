@@ -67,7 +67,7 @@ export default function Fragment() {
     {
       day: 13,
       activity:
-        "Saiam para jantar e assistam um filminha de terror juntinhos, afim hoje é sexta-feira 13",
+        "Saiam para jantar e assistam um filminho de terror juntinhos, afim hoje é sexta-feira 13 ❤️",
     },
     {
       day: 14,
